@@ -22,9 +22,7 @@ import { Filter } from '../Filter/Filter';
 import { nanoid } from 'nanoid';
 
 export class App extends Component {
-  static defaultProps = {
-    contactsArray: [],
-  };
+  
 
   state = {
     contacts: [],
@@ -37,9 +35,6 @@ export class App extends Component {
     let uniqueId;
     uniqueId = nanoid();
 
-    //console.log(evt);
-
-    //console.log(evt.target.dataset.id);
 
     this.setState({
       id: uniqueId,
@@ -67,7 +62,7 @@ export class App extends Component {
     const isNameDuplicate = contacts.some(contact => contact.name === name);
     if (isNameDuplicate) {
       alert('This name already exists');
-      //this.setState({ ...refreshState });
+      
       return;
     }
 
@@ -94,7 +89,7 @@ export class App extends Component {
   handleSubmit = evt => {
     evt.preventDefault();
     evt.target.reset();
-    //this.setState({ contacts: [] });
+    
     this.setState({
       name: '',
       number: '',
@@ -115,9 +110,7 @@ export class App extends Component {
     );
 
     this.setState({ filteredArray: bestMatches });
-    //filteredArray = best;
-
-    //console.log(filteredArray);
+    
   };
 
   handleDelete = evt => {
@@ -138,17 +131,14 @@ export class App extends Component {
     console.log(contacts);
   }
 
-  /*reset = () => {
-    this.setState({});
-  };*/
+  
 
   render() {
     const { name, number } = this.state.contacts;
     const { filter } = this.state;
     const { contacts } = this.state;
-    //const { contactsArray } = this.props;
     const { filteredArray } = this.state;
-    //this.props.renderList = false;
+    
 
     return (
       <div

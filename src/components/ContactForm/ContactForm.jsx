@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
 import css from './ContactForm.module.css';
-
+import PropTypes from 'prop-types';
 
 
 export class ContactForm extends Component {
@@ -21,8 +21,8 @@ export class ContactForm extends Component {
         onNumberChange,
         onCompletion,
         children,
-        onButtonPress,
-        id
+        onButtonPress
+        
       } = this.props;
 
        
@@ -43,7 +43,7 @@ export class ContactForm extends Component {
               value={name}
               onChange={onNameChange}
               id={this.contactNameId}
-              data-id={id}
+              
               autoComplete="off"
               className={css.formInput}
             />
@@ -80,3 +80,14 @@ export class ContactForm extends Component {
     );
   }
 }
+
+ContactForm.propTypes = {
+  name: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
+  onNameChange: PropTypes.func.isRequired,
+  onNumberChange: PropTypes.func.isRequired,
+  onCompletion: PropTypes.func.isRequired,
+  children: PropTypes.node,
+  onButtonPress: PropTypes.func.isRequired,
+  
+};

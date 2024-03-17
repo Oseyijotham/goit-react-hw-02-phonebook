@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
  import { nanoid } from 'nanoid';
- import css from './Filter.module.css';
+import css from './Filter.module.css';
+ import PropTypes from 'prop-types';
 
 export class Filter extends Component {
   searchTermId = nanoid();
@@ -42,3 +43,16 @@ export class Filter extends Component {
     );
   }
 }
+
+Filter.propTypes = {
+  searchTerm: PropTypes.string.isRequired,
+  onSearch: PropTypes.func.isRequired,
+  shouldRender: PropTypes.string.isRequired,
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};

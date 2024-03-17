@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import css from './ContactList.module.css';
+import PropTypes from 'prop-types';
 
 export class ContactList extends Component {
   render() {
@@ -36,3 +37,16 @@ export class ContactList extends Component {
     );
   }
 }
+
+ContactList.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  children: PropTypes.node, 
+  shouldRender: PropTypes.string.isRequired,
+  onDelete: PropTypes.func.isRequired,
+};
